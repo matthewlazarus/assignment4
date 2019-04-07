@@ -115,6 +115,7 @@ for count = 1:1000
 %     vInput3(count) = sin(2*pi*f3*t);
 end
 b(6) = vInput(1);
+Xprev=zeros(8,1);
 %f=1/0.03
 for count = 1:1000
     bNext = b;
@@ -223,7 +224,7 @@ for count = 1:1000
     % of 0.03.
     vInput(count) = exp(-0.5*((t-0.06)/0.03)^2); 
 end
-
+Xprev=zeros(8,1);
 b(6) = vInput(1);
 for count = 1:1000
     bNext = b;
@@ -256,7 +257,7 @@ figure;
 plot(linspace(0,1,1000),vOut)
 xlabel('Time (s)')
 ylabel('Output Voltage (Volts)')
-title('Output Voltage ove Time - Gaussian Pulse')
+title('Output Voltage over Time - Gaussian Pulse')
 
 figure;
 plot(fshift, fftVin);
